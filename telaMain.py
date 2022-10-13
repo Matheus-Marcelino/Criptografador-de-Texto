@@ -66,7 +66,7 @@ def main(ORGANIZADOR=bool()):
     X, Y = int(800), int(400)
     WINDOW_MAIN = Tk()
     WINDOW_MAIN.resizable(width=False, height=False)
-    WINDOW_MAIN.title("Criptografador -- beta 9.6")
+    WINDOW_MAIN.title("Criptografador")
     WINDOW_MAIN.geometry(f"{X}x{Y}+300+200")
     WINDOW_MAIN["bg"] = "black"
     try:
@@ -77,4 +77,12 @@ def main(ORGANIZADOR=bool()):
             title='ERROR: 02', message='A pasta icon foi excluida ou algum arquivo'
             ' modificado,\nPorfavor reinstale o aplicativo')
         pass
+    
+    # nome do programa
+    Label(WINDOW_MAIN, text="JOSH", bg="black",
+          fg="green", anchor='n').place(x=X/2.1, y=0.2)
+
+    # aviso
+    ComunicadoUrgente()
+    
     WINDOW_MAIN.mainloop()
