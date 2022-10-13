@@ -16,3 +16,14 @@ def main(ORGANIZADOR=bool()):
             '\nultima criptografia para sempre.\nDeseja continuar?')
         if aviso == 'yes':
             setSave()
+    
+    def Display(*args):  # display do criptografador
+        caixa = Text(WINDOW_MAIN, height=10, width=30, fg="green")
+        caixa.place(x=X/1.98, y=150)
+        tamanho = resultado.get()
+        if len(tamanho) <= 2000:
+            caixa.insert('end', chars=setCriptografador(barra))
+        else:
+            caixa.insert(
+                'end', chars='O limite de 2000 caracteres não pode ser ultrapassado')
+    
