@@ -98,3 +98,10 @@ def setCriptografador(barra=str()):
     except FileNotFoundError:
         setSave()
         return main()
+
+
+def setDescriptografador(barra=str()):
+    valor = barra.get().strip()
+    agrupador = []
+    separador = descriptografado = ''
+    mem, mem2 = 0, complexidade  # usado para avançar pela criptografia no tamanho da complexidade
