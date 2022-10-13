@@ -92,7 +92,7 @@ def setCriptografador(barra=str()):
                         criptografado = ''.join(separador)
                         break
             return criptografado
-    
+
     try:
         return main()
     except FileNotFoundError:
@@ -104,4 +104,24 @@ def setDescriptografador(barra=str()):
     valor = barra.get().strip()
     agrupador = []
     separador = descriptografado = ''
-    mem, mem2 = 0, complexidade  # usado para avançar pela criptografia no tamanho da complexidade
+    mem, mem2 = 0, complexidade
+    # {mem, mem2} usado para avançar pela criptografia no tamanho da complexidade
+
+    def main():
+        nonlocal mem, mem2, separador, descriptografado
+        with open('coden/key.txt', 'r') as file:
+            while True:
+                file.seek(0)
+                separador = valor[mem:mem2]
+                mem += complexidade
+                mem2 += complexidade
+                if separador != '':
+                    for cripto in file:
+                        validacao = separador in cripto[2:]
+                        if validacao:
+                            agrupador.append(cripto[:1])
+                            descriptografado = ''.join(agrupador)
+                            break
+                else:
+                    break
+            return descriptografado
