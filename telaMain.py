@@ -85,4 +85,18 @@ def main(ORGANIZADOR=bool()):
     # aviso
     ComunicadoUrgente()
     
+    
+    Label(WINDOW_MAIN, text="AVISO", bg="black", font="Arial 13",
+          fg="red", anchor='n').place(x=X/2.15, y=90)
+    Label(WINDOW_MAIN, text="CARACTERES ACENTUADOS NÃO SERÃO LIDOS!", bg="black", font="Arial 10",
+          fg="green", anchor='n').place(x=X/3.13, y=117)
+
+    # footer
+    Label(WINDOW_MAIN, text="O programa ainda está em desenvolvimento, podendo ter problemas de performance.\n"
+          "Sempre que puder apague os textos dentro das caixas, oque ajuda bastante no desempenho\n"
+          "e de preferência não coloque frases gigantes para serem criptografadas.\n "
+          "Obrigado por usar o programa!",
+          bg="black", fg="green", font="Arial 9", anchor='w').place(x=X/5.5, y=320)
+
+    
     WINDOW_MAIN.mainloop()
