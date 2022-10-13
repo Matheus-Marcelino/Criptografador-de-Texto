@@ -139,6 +139,7 @@ def setOrganizador():  # Apenas quando o programa for iniciado
     if not path.exists('coden'):
         setSave()
         return False
+
     try:
         with open('coden/key.txt', 'r+') as file:
 
@@ -150,7 +151,7 @@ def setOrganizador():  # Apenas quando o programa for iniciado
                 if file.readline()[:13] != 'complexidade=':
                     setSave()
                     return True
-                         
+
                 file.seek(0)
                 temp = file.readline()[13:]
                 complexidade = int(temp)
@@ -200,7 +201,6 @@ def setOrganizador():  # Apenas quando o programa for iniciado
                     else:
                         setSave()
                         return True
-                
             except ValueError:
                 complexidade = 10
                 setSave()
@@ -208,4 +208,4 @@ def setOrganizador():  # Apenas quando o programa for iniciado
     except FileNotFoundError:
         setSave()
         return True
-    return False    
+    return False
