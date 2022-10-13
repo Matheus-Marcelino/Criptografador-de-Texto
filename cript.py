@@ -159,6 +159,12 @@ def setOrganizador():  # Apenas quando o programa for iniciado
                     setSave()
                     return True
 
+                if complexidade > 2000:
+                    complexidade = 2000
+                    setSave()
+                    return True
+
+                
             except ValueError:
                 complexidade = 10
                 setSave()
