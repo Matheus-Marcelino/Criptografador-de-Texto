@@ -22,3 +22,18 @@ def animacao():
         return ORGANIZADOR
     except TclError:
         pass
+
+
+WINDOW_LOADING = Tk()
+WINDOW_LOADING.resizable(width=False, height=False)
+WINDOW_LOADING.title("Criptografador -- Loading")
+WINDOW_LOADING.geometry("500x200+500+300")
+WINDOW_LOADING["bg"] = "black"
+try:
+    WINDOW_LOADING.call('wm', 'iconphoto', WINDOW_LOADING._w,
+                        PhotoImage(file='icon/key.png'))
+except TclError:
+    messagebox.showerror(
+        title='ERROR: 02', message='A pasta "icon" foi excluida ou algum arquivo modificado,'
+        '\nPorfavor reinstale o Programa')
+    pass
