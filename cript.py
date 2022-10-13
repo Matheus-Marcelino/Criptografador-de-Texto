@@ -78,3 +78,17 @@ def setCriptografador(barra=str()):
         return 'Digite algo na barra a cima :)'
     separador = []
     criptografado = ''
+
+    def main():
+        nonlocal criptografado
+        with open('coden/key.txt', 'r') as file:
+            for letra in valor:
+                analisador = len(file.readline()[13:]) - 1
+                file.seek(13+analisador, 0)
+                for cripto in file:
+                    validacao = letra in cripto[:1]
+                    if validacao:
+                        separador.append(cripto[2:complexidade+2])
+                        criptografado = ''.join(separador)
+                        break
+            return criptografado
