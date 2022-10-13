@@ -164,6 +164,13 @@ def setOrganizador():  # Apenas quando o programa for iniciado
                     setSave()
                     return True
 
+                Conjunto()
+                for cripto in file:
+                    analisador = len(cripto[2:])-1 != complexidade
+                    if analisador:
+                        setSave()
+                        return True
+
                 
             except ValueError:
                 complexidade = 10
