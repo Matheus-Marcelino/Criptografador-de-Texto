@@ -122,4 +122,9 @@ def main(ORGANIZADOR=bool()):
         WINDOW_MAIN, text='/ 20000', bg='black', fg="green", anchor='n')
     identificador2_descrip.place(x=X/2.75, y=50)
     
+    # displays e associados
+    Label(text=Display())
+    Label(text=Display2())
+
+    
     WINDOW_MAIN.mainloop()
