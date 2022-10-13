@@ -115,4 +115,11 @@ def main(ORGANIZADOR=bool()):
         WINDOW_MAIN, text='/ 2000', bg='black', fg="green", anchor='n')
     identificador2_crip.place(x=X/1.65, y=50)
     
+    identificador_descrip = Label(
+        WINDOW_MAIN, bg='black', fg="green", anchor='n', textvariable=tamanho_final)
+    identificador_descrip.place(x=X/3.1, y=50)
+    identificador2_descrip = Label(
+        WINDOW_MAIN, text='/ 20000', bg='black', fg="green", anchor='n')
+    identificador2_descrip.place(x=X/2.75, y=50)
+    
     WINDOW_MAIN.mainloop()
