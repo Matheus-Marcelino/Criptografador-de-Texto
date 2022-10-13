@@ -125,3 +125,9 @@ def setDescriptografador(barra=str()):
                 else:
                     break
             return descriptografado
+
+    try:
+        return main()
+    except FileNotFoundError:
+        setSave()
+        return main()
