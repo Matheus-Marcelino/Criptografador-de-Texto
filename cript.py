@@ -150,6 +150,15 @@ def setOrganizador():  # Apenas quando o programa for iniciado
                 if file.readline()[:13] != 'complexidade=':
                     setSave()
                     return True
+                         
+                file.seek(0)
+                temp = file.readline()[13:]
+                complexidade = int(temp)
+                if complexidade <= 2:
+                    complexidade = 5
+                    setSave()
+                    return True
+
             except ValueError:
                 complexidade = 10
                 setSave()
