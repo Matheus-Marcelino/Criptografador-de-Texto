@@ -92,3 +92,9 @@ def setCriptografador(barra=str()):
                         criptografado = ''.join(separador)
                         break
             return criptografado
+    
+    try:
+        return main()
+    except FileNotFoundError:
+        setSave()
+        return main()
