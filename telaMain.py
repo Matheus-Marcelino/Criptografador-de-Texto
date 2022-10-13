@@ -35,3 +35,11 @@ def main(ORGANIZADOR=bool()):
             caixa.insert('end', chars=setDescriptografador(barra))
         else:
             return ''
+
+    def Limpar():
+        barra.delete(0, 'end')
+        Display()
+        Display2()
+        tamanho_final.set(0.0)
+        identificador_crip['fg'] = identificador2_crip['fg'] = \
+            identificador_descrip['fg'] = identificador2_descrip['fg'] = "green"
