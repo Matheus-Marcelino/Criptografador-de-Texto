@@ -139,3 +139,22 @@ def setOrganizador():  # Apenas quando o programa for iniciado
     if not path.exists('coden'):
         setSave()
         return False
+    try:
+        with open('coden/key.txt', 'r+') as file:
+
+            def Conjunto():
+                file.seek(0)
+                len(file.readline()[13:]) - 1
+
+            try:  # primeira ação
+                if file.readline()[:13] != 'complexidade=':
+                    setSave()
+                    return True
+            except ValueError:
+                complexidade = 10
+                setSave()
+                return True
+    except FileNotFoundError:
+        setSave()
+        return True
+    return False    
