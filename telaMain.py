@@ -62,3 +62,19 @@ def main(ORGANIZADOR=bool()):
     def CaracterCont(*args):
         tamanho = len(resultado.get())
         tamanho_final.set(0.0) if tamanho == 0 else tamanho_final.set(tamanho)
+
+    X, Y = int(800), int(400)
+    WINDOW_MAIN = Tk()
+    WINDOW_MAIN.resizable(width=False, height=False)
+    WINDOW_MAIN.title("Criptografador -- beta 9.6")
+    WINDOW_MAIN.geometry(f"{X}x{Y}+300+200")
+    WINDOW_MAIN["bg"] = "black"
+    try:
+        WINDOW_MAIN.call('wm', 'iconphoto', WINDOW_MAIN._w,
+                         PhotoImage(file='icon/key.png'))
+    except TclError:
+        messagebox.showerror(
+            title='ERROR: 02', message='A pasta icon foi excluida ou algum arquivo'
+            ' modificado,\nPorfavor reinstale o aplicativo')
+        pass
+    WINDOW_MAIN.mainloop()
