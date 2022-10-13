@@ -77,15 +77,14 @@ def main(ORGANIZADOR=bool()):
             title='ERROR: 02', message='A pasta icon foi excluida ou algum arquivo'
             ' modificado,\nPorfavor reinstale o aplicativo')
         pass
-    
+
     # nome do programa
     Label(WINDOW_MAIN, text="JOSH", bg="black",
           fg="green", anchor='n').place(x=X/2.1, y=0.2)
 
     # aviso
     ComunicadoUrgente()
-    
-    
+
     Label(WINDOW_MAIN, text="AVISO", bg="black", font="Arial 13",
           fg="red", anchor='n').place(x=X/2.15, y=90)
     Label(WINDOW_MAIN, text="CARACTERES ACENTUADOS NÃO SERÃO LIDOS!", bg="black", font="Arial 10",
@@ -106,7 +105,7 @@ def main(ORGANIZADOR=bool()):
     barra = Entry(WINDOW_MAIN, fg="green", textvariable=resultado, width=31)
     barra.place(x=X/2.7, y=21, width=218)
     barra.bind("<KeyRelease>", CaracterCont)  # detector do teclado
-    
+
     # configurando a variavel em seus locais
     identificador_crip = Label(WINDOW_MAIN, bg='black', fg="green",
                                anchor='n', textvariable=tamanho_final)
@@ -114,14 +113,14 @@ def main(ORGANIZADOR=bool()):
     identificador2_crip = Label(
         WINDOW_MAIN, text='/ 2000', bg='black', fg="green", anchor='n')
     identificador2_crip.place(x=X/1.65, y=50)
-    
+
     identificador_descrip = Label(
         WINDOW_MAIN, bg='black', fg="green", anchor='n', textvariable=tamanho_final)
     identificador_descrip.place(x=X/3.1, y=50)
     identificador2_descrip = Label(
         WINDOW_MAIN, text='/ 20000', bg='black', fg="green", anchor='n')
     identificador2_descrip.place(x=X/2.75, y=50)
-    
+
     # displays e associados
     Label(text=Display())
     Label(text=Display2())
@@ -137,5 +136,5 @@ def main(ORGANIZADOR=bool()):
 
     Button(WINDOW_MAIN, text='Limpar', command=Limpar).place(
         x=X/2.3, y=50, height=19)
-    
+
     WINDOW_MAIN.mainloop()
