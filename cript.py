@@ -171,6 +171,35 @@ def setOrganizador():  # Apenas quando o programa for iniciado
                         setSave()
                         return True
 
+                for digit in digits:
+                    Conjunto()
+                    for inspec in file:
+                        analisador = digit in inspec[:1]
+                        if analisador:
+                            break
+                    else:
+                        setSave()
+                        return True
+
+                for letter in letters:
+                    Conjunto()
+                    for inspec in file:
+                        analisador = letter in inspec[:1]
+                        if analisador:
+                            break
+                    else:
+                        setSave()
+                        return True
+
+                for punc in punctuation:
+                    Conjunto()
+                    for inspec in file:
+                        analisador = punc in inspec[:1]
+                        if analisador:
+                            break
+                    else:
+                        setSave()
+                        return True
                 
             except ValueError:
                 complexidade = 10
