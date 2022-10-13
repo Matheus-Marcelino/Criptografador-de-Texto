@@ -36,3 +36,13 @@ def setSave():
                 file.write(f'{letra}={GerarToken(complexidade)}\n')
             for symbol in punctuation:
                 file.write(f'{symbol}={GerarToken(complexidade)}\n')
+
+    def conjunto():
+        file.seek(0, 0)
+        file.write(f'complexidade={complexidade}\n')
+        for digito in digits:
+            file.write(f'{digito}={GerarToken(complexidade)}\n')
+        for letra in letters:
+            file.write(f'{letra}={GerarToken(complexidade)}\n')
+        for symbol in punctuation:
+            file.write(f'{symbol}={GerarToken(complexidade)}\n')
