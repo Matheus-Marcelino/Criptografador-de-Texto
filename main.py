@@ -44,3 +44,8 @@ Label(WINDOW_LOADING, text='Loading...', fg='green',
 for i in range(16):  # Criando os primeios quadrados
     Label(WINDOW_LOADING, bg='black', width=2,
           height=1).place(x=(i+4)*22, y=100)
+
+WINDOW_LOADING.update()
+ORGANIZADOR = animacao()
+WINDOW_LOADING.mainloop()
+main(ORGANIZADOR)
