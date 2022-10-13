@@ -9,3 +9,10 @@ def main(ORGANIZADOR=bool()):
             messagebox.showerror(
                 'ERROR: 01', 'Ouve Algum problema ou mudança de valor com no arquivo Key,'
                 '\nportante ele foi modificado e sua ultima criptografia foi perdida.')
+    
+    def Aviso():
+        aviso = messagebox.askquestion(
+            'Save Requestion', 'Ao mudar o save você perderá a sua'
+            '\nultima criptografia para sempre.\nDeseja continuar?')
+        if aviso == 'yes':
+            setSave()
