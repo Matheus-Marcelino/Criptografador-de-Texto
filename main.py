@@ -41,3 +41,6 @@ except TclError:
 Label(WINDOW_LOADING, text='Loading...', fg='green',
       bg='black', font="Bahnschrift 15").place(x=85, y=70)
 
+for i in range(16):  # Criando os primeios quadrados
+    Label(WINDOW_LOADING, bg='black', width=2,
+          height=1).place(x=(i+4)*22, y=100)
