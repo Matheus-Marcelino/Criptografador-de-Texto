@@ -126,5 +126,16 @@ def main(ORGANIZADOR=bool()):
     Label(text=Display())
     Label(text=Display2())
 
+    Button(WINDOW_MAIN, text="Save", command=Aviso,
+           width=4).place(x=X/2, y=50, height=19)
+
+    Button(WINDOW_MAIN, text="Criptografar", command=Display).place(
+        x=X/1.544, y=21, height=19)
+
+    Button(WINDOW_MAIN, text="Descriptografar",
+           command=Display2).place(x=X/4, y=21, height=19)
+
+    Button(WINDOW_MAIN, text='Limpar', command=Limpar).place(
+        x=X/2.3, y=50, height=19)
     
     WINDOW_MAIN.mainloop()
