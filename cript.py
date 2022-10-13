@@ -11,10 +11,7 @@ def ArquivoINTL():  # apagando a pasta __pycache__
 
 ArquivoINTL()
 
-letters = [' ', 'A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G',
-           'g', 'H', 'h', 'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N',
-           'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't', 'U',
-           'u', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z']
+LETTERS = ' AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz'
 complexidade = 10
 
 
@@ -32,7 +29,7 @@ def setSave():
             file.write(f'complexidade={complexidade}\n')
             for digito in digits:
                 file.write(f'{digito}={GerarToken(complexidade)}\n')
-            for letra in letters:
+            for letra in LETTERS:
                 file.write(f'{letra}={GerarToken(complexidade)}\n')
             for symbol in punctuation:
                 file.write(f'{symbol}={GerarToken(complexidade)}\n')
@@ -42,7 +39,7 @@ def setSave():
         file.write(f'complexidade={complexidade}\n')
         for digito in digits:
             file.write(f'{digito}={GerarToken(complexidade)}\n')
-        for letra in letters:
+        for letra in LETTERS:
             file.write(f'{letra}={GerarToken(complexidade)}\n')
         for symbol in punctuation:
             file.write(f'{symbol}={GerarToken(complexidade)}\n')
@@ -182,7 +179,7 @@ def setOrganizador():  # Apenas quando o programa for iniciado
                         setSave()
                         return True
 
-                for letter in letters:
+                for letter in LETTERS:
                     Conjunto()
                     for inspec in file:
                         analisador = letter in inspec[:1]
