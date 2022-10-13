@@ -46,7 +46,7 @@ def setSave():
             file.write(f'{letra}={GerarToken(complexidade)}\n')
         for symbol in punctuation:
             file.write(f'{symbol}={GerarToken(complexidade)}\n')
-            
+
     if not path.exists('coden'):
         mkdir('coden')
         Auxiliar()
@@ -55,3 +55,18 @@ def setSave():
                 'Não apague o arquivo "key" ou você perderá a sua criptografia!\n'
                 'Caso tenha apagado peça para gerar um novo arquivo, porém a criptografia será outra.\n'
                 'dependendo da complexidade que você escolha, pode afetar na velocidade do programa!')
+    else:
+        try:
+            with open('coden/key.txt', 'r+') as file:
+                try:
+                    temp = file.readline()[13:]
+                    file.truncate(0)
+                    complexidade = int(temp)
+                    if complexidade <= 2:
+                        complexidade = 5
+                    conjunto()
+                except ValueError:
+                    complexidade = 10
+                    conjunto()
+        except FileNotFoundError:
+            Auxiliar()
