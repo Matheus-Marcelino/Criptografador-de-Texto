@@ -103,5 +103,8 @@ def main(ORGANIZADOR=bool()):
     resultado, tamanho_final = StringVar(), DoubleVar()
     resultado.trace('w', Limitador)
 
+    barra = Entry(WINDOW_MAIN, fg="green", textvariable=resultado, width=31)
+    barra.place(x=X/2.7, y=21, width=218)
+    barra.bind("<KeyRelease>", CaracterCont)  # detector do teclado
     
     WINDOW_MAIN.mainloop()
