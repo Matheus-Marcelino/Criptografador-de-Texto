@@ -43,3 +43,18 @@ def main(ORGANIZADOR=bool()):
         tamanho_final.set(0.0)
         identificador_crip['fg'] = identificador2_crip['fg'] = \
             identificador_descrip['fg'] = identificador2_descrip['fg'] = "green"
+    
+    def Limitador(*args):
+        tamanho = resultado.get()
+        if len(tamanho) >= 5500:
+            identificador_descrip['fg'] = identificador2_descrip['fg'] = "yellow"
+            if len(tamanho) >= 8000:
+                identificador_descrip['fg'] = identificador2_descrip['fg'] = "red"
+                resultado.set(tamanho[0:20000])
+        else:
+            identificador_descrip['fg'] = identificador2_descrip['fg'] = "green"
+
+        if len(tamanho) > 2000:
+            identificador_crip['fg'] = identificador2_crip['fg'] = "red"
+        else:
+            identificador_crip['fg'] = identificador2_crip['fg'] = "green"
