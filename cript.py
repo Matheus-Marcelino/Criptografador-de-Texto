@@ -21,3 +21,18 @@ complexidade = 10
 def GerarToken(complexidade=complexidade, caracter=ascii_lowercase + ascii_uppercase + digits):
     token = ''.join(choice(caracter)for _ in range(complexidade))
     return token
+
+
+def setSave():
+    global complexidade
+
+    # escrevendo os digitos e sua criptografia
+    def Auxiliar():
+        with open('coden/key.txt', 'w') as file:
+            file.write(f'complexidade={complexidade}\n')
+            for digito in digits:
+                file.write(f'{digito}={GerarToken(complexidade)}\n')
+            for letra in letters:
+                file.write(f'{letra}={GerarToken(complexidade)}\n')
+            for symbol in punctuation:
+                file.write(f'{symbol}={GerarToken(complexidade)}\n')
