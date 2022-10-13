@@ -107,4 +107,12 @@ def main(ORGANIZADOR=bool()):
     barra.place(x=X/2.7, y=21, width=218)
     barra.bind("<KeyRelease>", CaracterCont)  # detector do teclado
     
+    # configurando a variavel em seus locais
+    identificador_crip = Label(WINDOW_MAIN, bg='black', fg="green",
+                               anchor='n', textvariable=tamanho_final)
+    identificador_crip.place(x=X/1.77, y=50)
+    identificador2_crip = Label(
+        WINDOW_MAIN, text='/ 2000', bg='black', fg="green", anchor='n')
+    identificador2_crip.place(x=X/1.65, y=50)
+    
     WINDOW_MAIN.mainloop()
