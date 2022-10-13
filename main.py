@@ -37,3 +37,7 @@ except TclError:
         title='ERROR: 02', message='A pasta "icon" foi excluida ou algum arquivo modificado,'
         '\nPorfavor reinstale o Programa')
     pass
+
+Label(WINDOW_LOADING, text='Loading...', fg='green',
+      bg='black', font="Bahnschrift 15").place(x=85, y=70)
+
