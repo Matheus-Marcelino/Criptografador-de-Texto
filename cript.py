@@ -131,3 +131,11 @@ def setDescriptografador(barra=str()):
     except FileNotFoundError:
         setSave()
         return main()
+
+
+def setOrganizador():  # Apenas quando o programa for iniciado
+    global complexidade
+
+    if not path.exists('coden'):
+        setSave()
+        return False
