@@ -70,3 +70,11 @@ def setSave():
                     conjunto()
         except FileNotFoundError:
             Auxiliar()
+
+
+def setCriptografador(barra=str()):
+    valor = barra.get()
+    if valor == '':
+        return 'Digite algo na barra a cima :)'
+    separador = []
+    criptografado = ''
