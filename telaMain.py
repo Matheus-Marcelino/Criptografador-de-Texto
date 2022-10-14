@@ -40,12 +40,13 @@ def main(ORGANIZADOR=bool()):
         barra.delete(0, 'end')
         Display()
         Display2()
-        tamanho_final.set(0.0)
+        tamanho_final.set(0)
         identificador_crip['fg'] = identificador2_crip['fg'] = \
             identificador_descrip['fg'] = identificador2_descrip['fg'] = "green"
 
     def Limitador(*args):
         tamanho = resultado.get()
+
         if len(tamanho) >= 5500:
             identificador_descrip['fg'] = identificador2_descrip['fg'] = "yellow"
             if len(tamanho) >= 8000:
@@ -61,7 +62,28 @@ def main(ORGANIZADOR=bool()):
 
     def CaracterCont(*args):
         tamanho = len(resultado.get())
-        tamanho_final.set(0.0) if tamanho == 0 else tamanho_final.set(tamanho)
+        tamanho_final.set(0) if tamanho == 0 else tamanho_final.set(tamanho)
+
+        def Responsividade():  # Responsividade do contador
+            lendo = int(tamanho_final.get())
+            lendo = len(str(lendo))
+            print('Tamanho: ', lendo)
+            if lendo == 1:
+                identificador_descrip.place(x=X/2.87, y=50)
+                identificador2_crip.place(x=X/1.72, y=50)
+            elif lendo == 2:
+                identificador_descrip.place(x=X/2.9, y=50)
+                identificador2_crip.place(x=X/1.71, y=50)
+            elif lendo == 3:
+                identificador_descrip.place(x=X/2.97, y=50)
+                identificador2_crip.place(x=X/1.69, y=50)
+            elif lendo == 4:
+                identificador_descrip.place(x=X/3.04, y=50)
+                identificador2_crip.place(x=X/1.67, y=50)
+            elif lendo == 5:
+                identificador_descrip.place(x=X/3.11, y=50)
+                identificador2_crip.place(x=X/1.65, y=50)
+        Responsividade()
 
     X, Y = int(800), int(400)
     WINDOW_MAIN = Tk()
@@ -101,6 +123,7 @@ def main(ORGANIZADOR=bool()):
     # coletando os dados da barra, definindo o len() e o tamanho maximo
     resultado, tamanho_final = StringVar(), DoubleVar()
     resultado.trace('w', Limitador)
+    tamanho_final.set(0)
 
     barra = Entry(WINDOW_MAIN, fg="green", textvariable=resultado, width=31)
     barra.place(x=X/2.7, y=21, width=218)
@@ -112,11 +135,11 @@ def main(ORGANIZADOR=bool()):
     identificador_crip.place(x=X/1.77, y=50)
     identificador2_crip = Label(
         WINDOW_MAIN, text='/ 2000', bg='black', fg="green", anchor='n')
-    identificador2_crip.place(x=X/1.65, y=50)
+    identificador2_crip.place(x=X/1.72, y=50)
 
     identificador_descrip = Label(
         WINDOW_MAIN, bg='black', fg="green", anchor='n', textvariable=tamanho_final)
-    identificador_descrip.place(x=X/3.1, y=50)
+    identificador_descrip.place(x=X/2.87, y=50)
     identificador2_descrip = Label(
         WINDOW_MAIN, text='/ 20000', bg='black', fg="green", anchor='n')
     identificador2_descrip.place(x=X/2.75, y=50)
