@@ -24,27 +24,31 @@ def animacao():
         pass
 
 
-WINDOW_LOADING = Tk()
-WINDOW_LOADING.resizable(width=False, height=False)
-WINDOW_LOADING.title("Criptografador -- Loading")
-WINDOW_LOADING.geometry("500x200+500+300")
-WINDOW_LOADING["bg"] = "black"
 try:
-    WINDOW_LOADING.call('wm', 'iconphoto', WINDOW_LOADING._w,
-                        PhotoImage(file='icon/key.png'))
+    WINDOW_LOADING = Tk()
+    WINDOW_LOADING.resizable(width=False, height=False)
+    WINDOW_LOADING.title("Criptografador -- Loading")
+    WINDOW_LOADING.geometry("500x200+500+300")
+    WINDOW_LOADING["bg"] = "black"
+    try:
+        WINDOW_LOADING.call('wm', 'iconphoto', WINDOW_LOADING._w,
+                            PhotoImage(file='icon/key.png'))
+    except TclError:
+        messagebox.showerror(
+            title='ERROR: 02', message='A pasta "icon" foi excluida ou algum arquivo modificado,'
+            '\nPorfavor reinstale o Programa')
+        WINDOW_LOADING.destroy()
+
+    Label(WINDOW_LOADING, text='Loading...', fg='green',
+          bg='black', font="Bahnschrift 15").place(x=85, y=70)
+
+    for i in range(16):  # Criando os primeios quadrados
+        Label(WINDOW_LOADING, bg='black', width=2,
+              height=1).place(x=(i+4)*22, y=100)
+
+    WINDOW_LOADING.update()
+    ORGANIZADOR = animacao()
+    WINDOW_LOADING.mainloop()
+    main(ORGANIZADOR)
 except TclError:
-    messagebox.showerror(
-        title='ERROR: 02', message='A pasta "icon" foi excluida ou algum arquivo modificado,'
-        '\nPorfavor reinstale o Programa')
-
-Label(WINDOW_LOADING, text='Loading...', fg='green',
-      bg='black', font="Bahnschrift 15").place(x=85, y=70)
-
-for i in range(16):  # Criando os primeios quadrados
-    Label(WINDOW_LOADING, bg='black', width=2,
-          height=1).place(x=(i+4)*22, y=100)
-
-WINDOW_LOADING.update()
-ORGANIZADOR = animacao()
-WINDOW_LOADING.mainloop()
-main(ORGANIZADOR)
+    pass

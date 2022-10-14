@@ -84,79 +84,83 @@ def main(ORGANIZADOR=bool()):
                 identificador_descrip.place(x=X/3.11, y=50)
                 identificador2_crip.place(x=X/1.65, y=50)
         Responsividade()
-
-    X, Y = int(800), int(400)
-    WINDOW_MAIN = Tk()
-    WINDOW_MAIN.resizable(width=False, height=False)
-    WINDOW_MAIN.title("Criptografador")
-    WINDOW_MAIN.geometry(f"{X}x{Y}+300+200")
-    WINDOW_MAIN["bg"] = "black"
     try:
-        WINDOW_MAIN.call('wm', 'iconphoto', WINDOW_MAIN._w,
-                         PhotoImage(file='icon/key.png'))
+        X, Y = int(800), int(400)
+        WINDOW_MAIN = Tk()
+        WINDOW_MAIN.resizable(width=False, height=False)
+        WINDOW_MAIN.title("Criptografador")
+        WINDOW_MAIN.geometry(f"{X}x{Y}+300+200")
+        WINDOW_MAIN["bg"] = "black"
+        try:
+            WINDOW_MAIN.call('wm', 'iconphoto', WINDOW_MAIN._w,
+                             PhotoImage(file='icon/key.png'))
+        except TclError:
+            messagebox.showerror(
+                title='ERROR: 02', message='A pasta icon foi excluida ou algum arquivo'
+                ' modificado,\nPorfavor reinstale o aplicativo')
+            WINDOW_MAIN.destroy()
+
+        # nome do programa
+        Label(WINDOW_MAIN, text="JOSH", bg="black",
+              fg="green", anchor='n').place(x=X/2.1, y=0.2)
+
+        # aviso
+        ComunicadoUrgente()
+
+        Label(WINDOW_MAIN, text="AVISO", bg="black", font="Arial 13",
+              fg="red", anchor='n').place(x=X/2.15, y=90)
+        Label(WINDOW_MAIN, text="CARACTERES ACENTUADOS NÃO SERÃO LIDOS!", bg="black", font="Arial 10",
+              fg="green", anchor='n').place(x=X/3.13, y=117)
+
+        # footer
+        Label(WINDOW_MAIN, text="O programa ainda está em desenvolvimento, podendo ter problemas de performance.\n"
+              "Sempre que puder apague os textos dentro das caixas, oque ajuda bastante no desempenho\n"
+              "e de preferência não coloque frases gigantes para serem criptografadas.\n "
+              "Obrigado por usar o programa!",
+              bg="black", fg="green", font="Arial 9", anchor='w').place(x=X/5.5, y=320)
+
+        # barra de escrita, seu limitador e seu vizualizador
+        # coletando os dados da barra, definindo o len() e o tamanho maximo
+        resultado, tamanho_final = StringVar(), DoubleVar()
+        resultado.trace('w', Limitador)
+        tamanho_final.set(0)
+
+        barra = Entry(WINDOW_MAIN, fg="green",
+                      textvariable=resultado, width=31)
+        barra.place(x=X/2.7, y=21, width=218)
+        barra.bind("<KeyRelease>", CaracterCont)  # detector do teclado
+
+        # configurando a variavel em seus locais
+        identificador_crip = Label(WINDOW_MAIN, bg='black', fg="green",
+                                   anchor='n', textvariable=tamanho_final)
+        identificador_crip.place(x=X/1.77, y=50)
+        identificador2_crip = Label(
+            WINDOW_MAIN, text='/ 2000', bg='black', fg="green", anchor='n')
+        identificador2_crip.place(x=X/1.72, y=50)
+
+        identificador_descrip = Label(
+            WINDOW_MAIN, bg='black', fg="green", anchor='n', textvariable=tamanho_final)
+        identificador_descrip.place(x=X/2.87, y=50)
+        identificador2_descrip = Label(
+            WINDOW_MAIN, text='/ 20000', bg='black', fg="green", anchor='n')
+        identificador2_descrip.place(x=X/2.75, y=50)
+
+        # displays e associados
+        Label(text=Display())
+        Label(text=Display2())
+
+        Button(WINDOW_MAIN, text="Save", command=Aviso,
+               width=4).place(x=X/2, y=50, height=19)
+
+        Button(WINDOW_MAIN, text="Criptografar", command=Display).place(
+            x=X/1.544, y=21, height=19)
+
+        Button(WINDOW_MAIN, text="Descriptografar",
+               command=Display2).place(x=X/4, y=21, height=19)
+
+        Button(WINDOW_MAIN, text='Limpar', command=Limpar).place(
+            x=X/2.3, y=50, height=19)
+
+        WINDOW_MAIN.mainloop()
     except TclError:
-        messagebox.showerror(
-            title='ERROR: 02', message='A pasta icon foi excluida ou algum arquivo'
-            ' modificado,\nPorfavor reinstale o aplicativo')
-
-    # nome do programa
-    Label(WINDOW_MAIN, text="JOSH", bg="black",
-          fg="green", anchor='n').place(x=X/2.1, y=0.2)
-
-    # aviso
-    ComunicadoUrgente()
-
-    Label(WINDOW_MAIN, text="AVISO", bg="black", font="Arial 13",
-          fg="red", anchor='n').place(x=X/2.15, y=90)
-    Label(WINDOW_MAIN, text="CARACTERES ACENTUADOS NÃO SERÃO LIDOS!", bg="black", font="Arial 10",
-          fg="green", anchor='n').place(x=X/3.13, y=117)
-
-    # footer
-    Label(WINDOW_MAIN, text="O programa ainda está em desenvolvimento, podendo ter problemas de performance.\n"
-          "Sempre que puder apague os textos dentro das caixas, oque ajuda bastante no desempenho\n"
-          "e de preferência não coloque frases gigantes para serem criptografadas.\n "
-          "Obrigado por usar o programa!",
-          bg="black", fg="green", font="Arial 9", anchor='w').place(x=X/5.5, y=320)
-
-    # barra de escrita, seu limitador e seu vizualizador
-    # coletando os dados da barra, definindo o len() e o tamanho maximo
-    resultado, tamanho_final = StringVar(), DoubleVar()
-    resultado.trace('w', Limitador)
-    tamanho_final.set(0)
-
-    barra = Entry(WINDOW_MAIN, fg="green", textvariable=resultado, width=31)
-    barra.place(x=X/2.7, y=21, width=218)
-    barra.bind("<KeyRelease>", CaracterCont)  # detector do teclado
-
-    # configurando a variavel em seus locais
-    identificador_crip = Label(WINDOW_MAIN, bg='black', fg="green",
-                               anchor='n', textvariable=tamanho_final)
-    identificador_crip.place(x=X/1.77, y=50)
-    identificador2_crip = Label(
-        WINDOW_MAIN, text='/ 2000', bg='black', fg="green", anchor='n')
-    identificador2_crip.place(x=X/1.72, y=50)
-
-    identificador_descrip = Label(
-        WINDOW_MAIN, bg='black', fg="green", anchor='n', textvariable=tamanho_final)
-    identificador_descrip.place(x=X/2.87, y=50)
-    identificador2_descrip = Label(
-        WINDOW_MAIN, text='/ 20000', bg='black', fg="green", anchor='n')
-    identificador2_descrip.place(x=X/2.75, y=50)
-
-    # displays e associados
-    Label(text=Display())
-    Label(text=Display2())
-
-    Button(WINDOW_MAIN, text="Save", command=Aviso,
-           width=4).place(x=X/2, y=50, height=19)
-
-    Button(WINDOW_MAIN, text="Criptografar", command=Display).place(
-        x=X/1.544, y=21, height=19)
-
-    Button(WINDOW_MAIN, text="Descriptografar",
-           command=Display2).place(x=X/4, y=21, height=19)
-
-    Button(WINDOW_MAIN, text='Limpar', command=Limpar).place(
-        x=X/2.3, y=50, height=19)
-
-    WINDOW_MAIN.mainloop()
+        pass
