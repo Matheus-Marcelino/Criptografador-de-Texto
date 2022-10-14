@@ -98,7 +98,6 @@ def main(ORGANIZADOR=bool()):
         messagebox.showerror(
             title='ERROR: 02', message='A pasta icon foi excluida ou algum arquivo'
             ' modificado,\nPorfavor reinstale o aplicativo')
-        pass
 
     # nome do programa
     Label(WINDOW_MAIN, text="JOSH", bg="black",
