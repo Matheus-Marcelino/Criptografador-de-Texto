@@ -7,7 +7,7 @@ def main(ORGANIZADOR=bool()):
     def ComunicadoUrgente():
         if ORGANIZADOR:
             messagebox.showerror(
-                'ERROR: 01', 'Ouve Algum problema ou mudança de valor com no arquivo Key,'
+                'ERROR: 01', 'Ouve Algum problema ou mudança de valor no arquivo Key,'
                 '\nportante ele foi modificado e sua ultima criptografia foi perdida.')
 
     def Aviso():
