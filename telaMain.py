@@ -60,14 +60,16 @@ def main(ORGANIZADOR=bool()):
         else:
             identificador_crip['fg'] = identificador2_crip['fg'] = "green"
 
-    def CaracterCont(*args):
-        tamanho = len(resultado.get())
-        tamanho_final.set(0) if tamanho == 0 else tamanho_final.set(tamanho)
+    def Atualizador(*args):
+        def Contador():  # Conta o número de caracteres
+            tamanho = len(resultado.get())
+            tamanho_final.set(
+                0) if tamanho == 0 else tamanho_final.set(tamanho)
 
         def Responsividade():  # Responsividade do contador
             lendo = int(tamanho_final.get())
             lendo = len(str(lendo))
-            print('Tamanho: ', lendo)
+
             if lendo == 1:
                 identificador_descrip.place(x=X/2.87, y=50)
                 identificador2_crip.place(x=X/1.72, y=50)
@@ -83,7 +85,9 @@ def main(ORGANIZADOR=bool()):
             elif lendo == 5:
                 identificador_descrip.place(x=X/3.11, y=50)
                 identificador2_crip.place(x=X/1.65, y=50)
+        Contador()
         Responsividade()
+
     try:
         X, Y = int(800), int(400)
         WINDOW_MAIN = Tk()
@@ -128,7 +132,7 @@ def main(ORGANIZADOR=bool()):
         barra = Entry(WINDOW_MAIN, fg="green",
                       textvariable=resultado, width=31)
         barra.place(x=X/2.7, y=21, width=218)
-        barra.bind("<KeyRelease>", CaracterCont)  # detector do teclado
+        barra.bind("<KeyRelease>", Atualizador)  # detector do teclado
 
         # configurando a variavel em seus locais
         identificador_crip = Label(WINDOW_MAIN, bg='black', fg="green",
