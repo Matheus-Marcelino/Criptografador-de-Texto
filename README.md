@@ -6,4 +6,4 @@ Você pode olhar a sua criptografia na pasta <b>"Coden > key.txt"</b> onde vai s
 
 Aproveite o programa :)
 
-#### Nota: deixarei um executavel compactador para quem quiser usar
+### Nota: deixarei um executavel compactador para quem quiser usar
