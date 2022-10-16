@@ -36,6 +36,31 @@ def main(ORGANIZADOR=bool()):
         else:
             return ''
 
+    def Responsividade():  # Responsividade do contador
+        lendo = int(tamanho_final.get())
+        lendo = len(str(lendo))
+
+        if lendo == 1:
+            identificador_descrip.place(x=X/2.87, y=50)
+            identificador2_crip.place(x=X/1.72, y=50)
+        elif lendo == 2:
+            identificador_descrip.place(x=X/2.9, y=50)
+            identificador2_crip.place(x=X/1.71, y=50)
+        elif lendo == 3:
+            identificador_descrip.place(x=X/2.97, y=50)
+            identificador2_crip.place(x=X/1.69, y=50)
+        elif lendo == 4:
+            identificador_descrip.place(x=X/3.04, y=50)
+            identificador2_crip.place(x=X/1.67, y=50)
+        elif lendo == 5:
+            identificador_descrip.place(x=X/3.11, y=50)
+            identificador2_crip.place(x=X/1.65, y=50)
+
+    def Contador():  # Conta o número de caracteres
+        tamanho = len(resultado.get())
+        tamanho_final.set(0) \
+            if tamanho == 0 else tamanho_final.set(tamanho)
+
     def Limpar():
         barra.delete(0, 'end')
         Display()
@@ -43,6 +68,7 @@ def main(ORGANIZADOR=bool()):
         tamanho_final.set(0)
         identificador_crip['fg'] = identificador2_crip['fg'] = \
             identificador_descrip['fg'] = identificador2_descrip['fg'] = "green"
+        Responsividade()
 
     def Limitador(*args):
         tamanho = resultado.get()
@@ -61,30 +87,6 @@ def main(ORGANIZADOR=bool()):
             identificador_crip['fg'] = identificador2_crip['fg'] = "green"
 
     def Atualizador(*args):
-        def Contador():  # Conta o número de caracteres
-            tamanho = len(resultado.get())
-            tamanho_final.set(
-                0) if tamanho == 0 else tamanho_final.set(tamanho)
-
-        def Responsividade():  # Responsividade do contador
-            lendo = int(tamanho_final.get())
-            lendo = len(str(lendo))
-
-            if lendo == 1:
-                identificador_descrip.place(x=X/2.87, y=50)
-                identificador2_crip.place(x=X/1.72, y=50)
-            elif lendo == 2:
-                identificador_descrip.place(x=X/2.9, y=50)
-                identificador2_crip.place(x=X/1.71, y=50)
-            elif lendo == 3:
-                identificador_descrip.place(x=X/2.97, y=50)
-                identificador2_crip.place(x=X/1.69, y=50)
-            elif lendo == 4:
-                identificador_descrip.place(x=X/3.04, y=50)
-                identificador2_crip.place(x=X/1.67, y=50)
-            elif lendo == 5:
-                identificador_descrip.place(x=X/3.11, y=50)
-                identificador2_crip.place(x=X/1.65, y=50)
         Contador()
         Responsividade()
 
