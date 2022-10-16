@@ -69,7 +69,7 @@ def setSave():
             Auxiliar()
 
 
-def setCriptografador(barra=str()):
+def setCriptografador(barra: str):
     valor = barra.get()
     if valor == '':
         return 'Digite algo na barra a cima :)'
@@ -97,7 +97,7 @@ def setCriptografador(barra=str()):
         return main()
 
 
-def setDescriptografador(barra=str()):
+def setDescriptografador(barra: str):
     valor = barra.get().strip()
     agrupador = []
     separador = descriptografado = ''
