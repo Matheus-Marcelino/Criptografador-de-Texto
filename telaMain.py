@@ -25,7 +25,7 @@ def main(ORGANIZADOR=bool()):
             caixa.insert('end', chars=setCriptografador(barra))
         else:
             caixa.insert(
-                'end', chars='O limite de 2000 caracteres não pode ser ultrapassado')
+                'end', chars='O limite de 2000 caracteres\nnão pode ser ultrapassado')
             resultado.set(tamanho[0:2000])
             tamanho_final.set(2000)
 
