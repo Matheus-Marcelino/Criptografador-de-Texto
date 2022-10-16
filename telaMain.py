@@ -26,6 +26,8 @@ def main(ORGANIZADOR=bool()):
         else:
             caixa.insert(
                 'end', chars='O limite de 2000 caracteres não pode ser ultrapassado')
+            resultado.set(tamanho[0:2000])
+            tamanho_final.set(2000)
 
     def Display2(*args):  # display do descriptografador
         caixa = Text(WINDOW_MAIN, height=10, width=30, fg="green")

@@ -1,0 +1,3 @@
+Não apague o arquivo "key" ou você perderá a sua criptografia!
+Caso tenha apagado peça para gerar um novo arquivo, porém a criptografia será outra.
+dependendo da complexidade que você escolha, pode afetar na velocidade do programa!
