@@ -135,7 +135,7 @@ def main(ORGANIZADOR: list):
 
         # barra de escrita, seu limitador e seu vizualizador
         # coletando os dados da barra, definindo o len() e o tamanho maximo
-        resultado, tamanho_final = StringVar(), DoubleVar()    
+        resultado, tamanho_final = StringVar(), DoubleVar()
         resultado.trace('w', Limitador)
         tamanho_final.set(0)
 
