@@ -135,7 +135,8 @@ def setOrganizador():  # Apenas quando o programa for iniciado
     ORGANIZADOR = list()
     if not path.exists('coden'):
         setSave()
-        return False
+        ORGANIZADOR.append(False)
+        return ORGANIZADOR
 
     try:
         with open('coden/key.txt', 'r+') as file:
