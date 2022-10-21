@@ -1,10 +1,10 @@
 from tkinter import TclError, Tk, Label, PhotoImage, messagebox
-from cript import setOrganizador
 from telaMain import main
-from time import sleep
 
 
 def animacao():
+    from time import sleep
+    from cript import setOrganizador
     try:
         for _ in range(5):  # quanto vai demorar
             for j in range(16):  # quantidade de quadrados
