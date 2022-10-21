@@ -1,10 +1,9 @@
 from string import ascii_lowercase, ascii_uppercase, punctuation, digits
 from os import mkdir, path
-from shutil import rmtree
-from random import choice
 
 
 def ArquivoINTL():  # apagando a pasta __pycache__
+    from shutil import rmtree
     if path.exists('__pycache__'):
         rmtree('__pycache__')
 
@@ -16,6 +15,7 @@ complexidade = 10
 
 
 def GerarToken(complexidade=complexidade, caracter=ascii_lowercase + ascii_uppercase + digits):
+    from random import choice
     token = ''.join(choice(caracter)for _ in range(complexidade))
     return token
 
