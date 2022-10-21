@@ -1,14 +1,21 @@
 from tkinter import DoubleVar, StringVar, TclError, Tk, Label, Button, Entry, Text, PhotoImage, messagebox
 from cript import setSave, setCriptografador, setDescriptografador, ArquivoINTL
 ArquivoINTL()
+# desabilitar o atualizador com a resposta do organizador
 
 
-def main(ORGANIZADOR=bool()):
+def main(ORGANIZADOR: list):
     def ComunicadoUrgente():
-        if ORGANIZADOR:
+        if ORGANIZADOR[0] is True:
             messagebox.showerror(
                 'ERROR: 01', 'Ouve Algum problema ou mudança de valor no arquivo Key,'
                 '\nportante ele foi modificado e sua ultima criptografia foi perdida.')
+        try:
+            if ORGANIZADOR[0] is None or ORGANIZADOR[1] is None:
+                messagebox.showwarning('Aviso Importante', 'A sua complexidade está acima de 100\n'
+                                       'Problemas de performance podem aparecer.')
+        except IndexError:
+            pass
 
     def Aviso():
         aviso = messagebox.askquestion(
