@@ -1,7 +1,6 @@
 from tkinter import DoubleVar, StringVar, TclError, Tk, Label, Button, Entry, Text, PhotoImage, messagebox
 from cript import setSave, setCriptografador, setDescriptografador, ArquivoINTL
 ArquivoINTL()
-# desabilitar o atualizador com a resposta do organizador
 
 
 def main(ORGANIZADOR: list):
@@ -137,7 +136,7 @@ def main(ORGANIZADOR: list):
 
         # barra de escrita, seu limitador e seu vizualizador
         # coletando os dados da barra, definindo o len() e o tamanho maximo
-        resultado, tamanho_final = StringVar(), DoubleVar()
+        resultado, tamanho_final = StringVar(), DoubleVar()    
         resultado.trace('w', Limitador)
         tamanho_final.set(0)
 
@@ -165,7 +164,7 @@ def main(ORGANIZADOR: list):
         Label(text=Display())
         Label(text=Display2())
 
-        Button(WINDOW_MAIN, text="Save", command=Aviso,
+        Button(WINDOW_MAIN, text="Save", command=lambda: Aviso(),
                width=4).place(x=X/2, y=50, height=19)
 
         Button(WINDOW_MAIN, text="Criptografar", command=Display).place(
