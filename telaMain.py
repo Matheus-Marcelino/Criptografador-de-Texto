@@ -6,11 +6,12 @@ ArquivoINTL()
 
 def main(ORGANIZADOR: list):
     def ComunicadoUrgente():
-        if ORGANIZADOR[0] is True:
-            messagebox.showerror(
-                'ERROR: 01', 'Ouve Algum problema ou mudança de valor no arquivo Key,'
-                '\nportante ele foi modificado e sua ultima criptografia foi perdida.')
         try:
+            if ORGANIZADOR[1] is True or ORGANIZADOR[0] is True:
+                messagebox.showerror(
+                    'ERROR: 01', 'Ouve Algum problema ou mudança de valor no arquivo Key,'
+                    '\nportante ele foi modificado e sua ultima criptografia foi perdida.')
+
             if ORGANIZADOR[0] is None or ORGANIZADOR[1] is None:
                 messagebox.showwarning('Aviso Importante', 'A sua complexidade está acima de 100\n'
                                        'Problemas de performance podem aparecer.')
