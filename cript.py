@@ -159,6 +159,9 @@ def setOrganizador():  # Apenas quando o programa for iniciado
                     ORGANIZADOR.append(True)
                     return ORGANIZADOR
 
+                if complexidade >= 100:
+                    ORGANIZADOR.append(None)
+
                 Conjunto()
                 for cripto in file:
                     analisador = len(cripto[2:])-1 != complexidade
@@ -197,9 +200,6 @@ def setOrganizador():  # Apenas quando o programa for iniciado
                         ORGANIZADOR.append(True)
                         return ORGANIZADOR
 
-                if complexidade >= 100:
-                    ORGANIZADOR.append(None)
-                    return ORGANIZADOR
             except ValueError:
                 complexidade = 10
                 setSave()
