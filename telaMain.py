@@ -1,7 +1,6 @@
 def main(ORGANIZADOR: list):
     from tkinter import DoubleVar, StringVar, TclError, Tk, Label, Button, Entry, Text, PhotoImage, messagebox
-    from cript import setSave, setCriptografador, setDescriptografador, ArquivoINTL
-    ArquivoINTL()
+    from cript import setSave, setCriptografador, setDescriptografador
 
     def ComunicadoUrgente():
         if ORGANIZADOR[0] is None:

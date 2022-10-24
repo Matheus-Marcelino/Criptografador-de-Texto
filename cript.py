@@ -1,15 +1,6 @@
 from string import ascii_lowercase, ascii_uppercase, punctuation, digits
 from os import mkdir, path
 
-
-def ArquivoINTL():  # apagando a pasta __pycache__
-    from shutil import rmtree
-    if path.exists('__pycache__'):
-        rmtree('__pycache__')
-
-
-ArquivoINTL()
-
 LETTERS = ' AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz'
 complexidade = 10
 
@@ -212,3 +203,9 @@ def setOrganizador():  # Apenas quando o programa for iniciado
         return ORGANIZADOR
     ORGANIZADOR.append(False)
     return ORGANIZADOR
+
+
+def ArquivoINTL():  # apagando a pasta __pycache__
+    from shutil import rmtree
+    if path.exists('__pycache__'):
+        rmtree('__pycache__')
