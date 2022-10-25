@@ -5,13 +5,13 @@ LETTERS = ' AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz'
 complexidade = 10
 
 
-def GerarToken(complexidade=complexidade, caracter=ascii_lowercase + ascii_uppercase + digits):
+def GerarToken(complexidade=complexidade, caracter=ascii_lowercase + ascii_uppercase + digits) -> str:
     from random import choice
     token = ''.join(choice(caracter)for _ in range(complexidade))
     return token
 
 
-def setSave():
+def setSave() -> None:
     global complexidade
 
     # escrevendo os digitos e sua criptografia
@@ -60,7 +60,7 @@ def setSave():
             Auxiliar()
 
 
-def setCriptografador(barra: str):
+def setCriptografador(barra: str) -> str:
     valor = barra.get()
     if valor == '':
         return 'Digite algo na barra a cima :)'
@@ -88,7 +88,7 @@ def setCriptografador(barra: str):
         return main()
 
 
-def setDescriptografador(barra: str):
+def setDescriptografador(barra: str) -> str:
     valor = barra.get().strip()
     agrupador = []
     separador = descriptografado = ''
@@ -121,7 +121,7 @@ def setDescriptografador(barra: str):
         return main()
 
 
-def setOrganizador():  # Apenas quando o programa for iniciado
+def setOrganizador() -> list:  # Apenas quando o programa for iniciado
     global complexidade
     ORGANIZADOR = list()
     if not path.exists('coden'):
@@ -205,7 +205,7 @@ def setOrganizador():  # Apenas quando o programa for iniciado
     return ORGANIZADOR
 
 
-def ArquivoINTL():  # apagando a pasta __pycache__
+def ArquivoINTL() -> None:  # apagando a pasta __pycache__
     from shutil import rmtree
     if path.exists('__pycache__'):
         rmtree('__pycache__')
