@@ -1,8 +1,8 @@
-def main(ORGANIZADOR: list):
+def main(ORGANIZADOR: list) -> None:
     from tkinter import DoubleVar, StringVar, TclError, Tk, Label, Button, Entry, Text, PhotoImage, messagebox
     from cript import setSave, setCriptografador, setDescriptografador
 
-    def ComunicadoUrgente():
+    def ComunicadoUrgente() -> None:
         if ORGANIZADOR[0] is None:
             messagebox.showwarning('Aviso Importante', 'A sua complexidade está acima de 100\n'
                                    'Problemas de performance podem aparecer.')
@@ -15,14 +15,14 @@ def main(ORGANIZADOR: list):
         except IndexError:
             pass
 
-    def Aviso():
+    def Aviso() -> None:
         aviso = messagebox.askquestion(
             'Save Requestion', 'Ao mudar o save você perderá a sua'
             '\nultima criptografia para sempre.\nDeseja continuar?')
         if aviso == 'yes':
             setSave()
 
-    def Display(*args):  # display do criptografador
+    def Display(*args) -> None:  # display do criptografador
         caixa = Text(WINDOW_MAIN, height=10, width=30, fg="green")
         caixa.place(x=X/1.98, y=150)
         tamanho = resultado.get()
@@ -34,16 +34,14 @@ def main(ORGANIZADOR: list):
             resultado.set(tamanho[0:2000])
             tamanho_final.set(2000)
 
-    def Display2(*args):  # display do descriptografador
+    def Display2(*args) -> None:  # display do descriptografador
         caixa = Text(WINDOW_MAIN, height=10, width=30, fg="green")
         caixa.place(x=X/5.2, y=150)
         tamanho = resultado.get()
         if len(tamanho) <= 20000:
             caixa.insert('end', chars=setDescriptografador(barra))
-        else:
-            return ''
 
-    def Responsividade():  # Responsividade do contador
+    def Responsividade() -> None:  # Responsividade do contador
         lendo = int(tamanho_final.get())
         lendo = len(str(lendo))
 
@@ -63,12 +61,12 @@ def main(ORGANIZADOR: list):
             identificador_descrip.place(x=X/3.11, y=50)
             identificador2_crip.place(x=X/1.65, y=50)
 
-    def Contador():  # Conta o número de caracteres
+    def Contador() -> None:  # Conta o número de caracteres
         tamanho = len(resultado.get())
         tamanho_final.set(0) \
             if tamanho == 0 else tamanho_final.set(tamanho)
 
-    def Limpar():
+    def Limpar() -> None:
         barra.delete(0, 'end')
         Display()
         Display2()
@@ -77,7 +75,7 @@ def main(ORGANIZADOR: list):
             identificador_descrip['fg'] = identificador2_descrip['fg'] = "green"
         Responsividade()
 
-    def Limitador(*args):
+    def Limitador(*args) -> None:
         tamanho = resultado.get()
 
         if len(tamanho) >= 5500:
@@ -93,7 +91,7 @@ def main(ORGANIZADOR: list):
         else:
             identificador_crip['fg'] = identificador2_crip['fg'] = "green"
 
-    def Atualizador(*args):
+    def Atualizador(*args) -> None:
         Contador()
         Responsividade()
 
