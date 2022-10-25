@@ -4,7 +4,7 @@ from telaMain import main
 ArquivoINTL()
 
 if __name__ == '__main__':
-    def animacao() -> (list | None):
+    def animacao() -> (list):
         from time import sleep
         from cript import setOrganizador
         try:
