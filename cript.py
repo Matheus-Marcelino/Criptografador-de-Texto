@@ -169,6 +169,7 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                         if analisador:
                             break
                     else:
+                        setSave()
                         ORGANIZADOR.append(True)
                         return ORGANIZADOR
 
@@ -179,6 +180,7 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                         if analisador:
                             break
                     else:
+                        setSave()
                         ORGANIZADOR.append(True)
                         return ORGANIZADOR
 
@@ -189,6 +191,7 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                         if analisador:
                             break
                     else:
+                        setSave()
                         ORGANIZADOR.append(True)
                         return ORGANIZADOR
 
