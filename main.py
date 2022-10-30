@@ -4,7 +4,7 @@ from telaMain import main
 ArquivoINTL()
 
 if __name__ == '__main__':
-    def animacao() -> (list):
+    def animacao() -> list:
         from time import sleep
         from cript import setOrganizador
         try:
@@ -35,9 +35,8 @@ if __name__ == '__main__':
             WINDOW_LOADING.call('wm', 'iconphoto', WINDOW_LOADING._w,
                                 PhotoImage(file='icon/key.png'))
         except TclError:
-            messagebox.showerror(
-                title='ERROR: 02', message='A pasta "icon" foi excluida ou algum arquivo modificado,'
-                '\nPorfavor reinstale o Programa')
+            messagebox.showerror(title='ERROR: 02', message='A pasta "icon" foi excluida '
+                                 'ou algum arquivo modificado,\nPorfavor reinstale o Programa')
             WINDOW_LOADING.destroy()
 
         Label(WINDOW_LOADING, text='Loading...', fg='green',

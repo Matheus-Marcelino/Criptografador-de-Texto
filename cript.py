@@ -5,9 +5,9 @@ LETTERS = ' AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz'
 complexidade = 10
 
 
-def GerarToken(complexidade=complexidade, caracter=ascii_lowercase + ascii_uppercase + digits) -> str:
+def GerarToken(tamanho=complexidade, caracter=ascii_lowercase + ascii_uppercase + digits) -> str:
     from random import choice
-    token = ''.join(choice(caracter)for _ in range(complexidade))
+    token = ''.join(choice(caracter)for _ in range(tamanho))
     return token
 
 
@@ -16,7 +16,7 @@ def setSave() -> None:
 
     # escrevendo os digitos e sua criptografia
     def Auxiliar():
-        with open('coden/key.txt', 'w') as file:
+        with open('coden/key.txt', 'w', encoding='utf-8') as file:
             file.write(f'complexidade={complexidade}\n')
             for digito in digits:
                 file.write(f'{digito}={GerarToken(complexidade)}\n')
@@ -38,14 +38,15 @@ def setSave() -> None:
     if not path.exists('coden'):
         mkdir('coden')
         Auxiliar()
-        with open('coden/read-me.txt', 'w') as aviso:
+        with open('coden/read-me.txt', 'w', encoding='utf-8') as aviso:
             aviso.write(
                 'Não apague o arquivo "key" ou você perderá a sua criptografia!\n'
-                'Caso tenha apagado peça para gerar um novo arquivo, porém a criptografia será outra.\n'
-                'dependendo da complexidade que você escolha, pode afetar na velocidade do programa!')
+                'Caso tenha apagado peça para gerar um novo arquivo, porém a criptografia será '
+                'outra.\ndependendo da complexidade que você escolha, pode afetar na velocidade '
+                'do programa!')
     else:
         try:
-            with open('coden/key.txt', 'r+') as file:
+            with open('coden/key.txt', 'r+', encoding='utf-8') as file:
                 try:
                     temp = file.readline()[13:]
                     file.truncate(0)
@@ -69,7 +70,7 @@ def setCriptografador(barra: str) -> str:
 
     def main():
         nonlocal criptografado
-        with open('coden/key.txt', 'r') as file:
+        with open('coden/key.txt', 'r', encoding='utf-8') as file:
             for letra in valor:
                 analisador = len(file.readline()[13:]) - 1
                 file.seek(13+analisador, 0)
@@ -97,7 +98,7 @@ def setDescriptografador(barra: str) -> str:
 
     def main():
         nonlocal mem, mem2, separador, descriptografado
-        with open('coden/key.txt', 'r') as file:
+        with open('coden/key.txt', 'r', encoding='utf-8') as file:
             while True:
                 file.seek(0)
                 separador = valor[mem:mem2]
@@ -123,14 +124,14 @@ def setDescriptografador(barra: str) -> str:
 
 def setOrganizador() -> list:  # Apenas quando o programa for iniciado
     global complexidade
-    ORGANIZADOR = list()
+    ORGANIZADOR = []
     if not path.exists('coden'):
         setSave()
         ORGANIZADOR.append(False)
         return ORGANIZADOR
 
     try:
-        with open('coden/key.txt', 'r+') as file:
+        with open('coden/key.txt', 'r+', encoding='utf-8') as file:
 
             def Conjunto():
                 file.seek(0)
