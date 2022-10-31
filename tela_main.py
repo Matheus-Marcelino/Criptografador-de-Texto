@@ -1,6 +1,6 @@
 def main(ORGANIZADOR: list) -> None:
     from tkinter import DoubleVar, StringVar, TclError, Tk, Label, Button, Entry, Text, PhotoImage, messagebox
-    from cript import setSave, criptografador, setDescriptografador
+    from cript import setSave, criptografador, descriptografador
 
     def ComunicadoUrgente() -> None:
         if ORGANIZADOR[0] is None:
@@ -39,7 +39,7 @@ def main(ORGANIZADOR: list) -> None:
         caixa.place(x=X/5.2, y=150)
         tamanho = resultado.get()
         if len(tamanho) <= 20000:
-            caixa.insert('end', chars=setDescriptografador(barra))
+            caixa.insert('end', chars=descriptografador(barra))
 
     def Responsividade() -> None:  # Responsividade do contador
         lendo = int(tamanho_final.get())

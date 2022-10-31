@@ -89,7 +89,7 @@ def criptografador(barra: str) -> str:
         return main()
 
 
-def setDescriptografador(barra: str) -> str:
+def descriptografador(barra: str) -> str:
     valor = barra.get().strip()
     agrupador = []
     separador = descriptografado = ''
