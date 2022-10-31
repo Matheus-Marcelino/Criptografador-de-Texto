@@ -85,7 +85,7 @@ def criptografador(barra: str) -> str:
     try:
         return main()
     except FileNotFoundError:
-        setSave()
+        save_paste()
         return main()
 
 
@@ -118,7 +118,7 @@ def descriptografador(barra: str) -> str:
     try:
         return main()
     except FileNotFoundError:
-        setSave()
+        save_paste()
         return main()
 
 
@@ -126,7 +126,7 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
     global complexidade
     ERROR_LIST = [True]
     if not path.exists('coden'):
-        setSave()
+        save_paste()
         ERROR_LIST.clear()
         ERROR_LIST.append(False)
         return ERROR_LIST
@@ -140,7 +140,7 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
 
             try:  # primeira ação
                 if file.readline()[:13] != 'complexidade=':
-                    setSave()
+                    save_paste()
                     return ERROR_LIST
 
                 file.seek(0)
@@ -148,7 +148,7 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                 complexidade = int(temp)
                 if complexidade <= 2:
                     complexidade = 5
-                    setSave()
+                    save_paste()
                     return ERROR_LIST
 
                 if complexidade >= 100:
@@ -158,7 +158,7 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                 for cripto in file:
                     analisador = len(cripto[2:])-1 != complexidade
                     if analisador:
-                        setSave()
+                        save_paste()
                         return ERROR_LIST
 
                 for digit in digits:
@@ -168,7 +168,7 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                         if analisador:
                             break
                     else:
-                        setSave()
+                        save_paste()
                         return ERROR_LIST
 
                 for letter in LETTERS:
@@ -178,7 +178,7 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                         if analisador:
                             break
                     else:
-                        setSave()
+                        save_paste()
                         return ERROR_LIST
 
                 for punc in punctuation:
@@ -188,16 +188,16 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                         if analisador:
                             break
                     else:
-                        setSave()
+                        save_paste()
 
                         return ERROR_LIST
 
             except ValueError:
                 complexidade = 10
-                setSave()
+                save_paste()
                 return ERROR_LIST
     except FileNotFoundError:
-        setSave()
+        save_paste()
         return ERROR_LIST
     ERROR_LIST.clear()
     ERROR_LIST.append(False)
