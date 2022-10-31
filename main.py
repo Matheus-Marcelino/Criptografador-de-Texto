@@ -1,6 +1,6 @@
 from tkinter import TclError, Tk, Label, PhotoImage, messagebox
 from cript import ArquivoINTL
-from telaMain import main
+from tela_main import main
 ArquivoINTL()
 
 if __name__ == '__main__':
