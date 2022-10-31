@@ -5,7 +5,7 @@ LETTERS = ' AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz'
 complexidade = 10
 
 
-def GerarToken(tamanho=complexidade, caracter=ascii_lowercase + ascii_uppercase + digits) -> str:
+def gerar_token(tamanho=complexidade, caracter=ascii_lowercase + ascii_uppercase + digits) -> str:
     from random import choice
     token = ''.join(choice(caracter)for _ in range(tamanho))
     return token
@@ -15,29 +15,29 @@ def setSave() -> None:
     global complexidade
 
     # escrevendo os digitos e sua criptografia
-    def Auxiliar():
+    def auxiliar():
         with open('coden/key.txt', 'w', encoding='utf-8') as file:
             file.write(f'complexidade={complexidade}\n')
             for digito in digits:
-                file.write(f'{digito}={GerarToken(complexidade)}\n')
+                file.write(f'{digito}={gerar_token(complexidade)}\n')
             for letra in LETTERS:
-                file.write(f'{letra}={GerarToken(complexidade)}\n')
+                file.write(f'{letra}={gerar_token(complexidade)}\n')
             for symbol in punctuation:
-                file.write(f'{symbol}={GerarToken(complexidade)}\n')
+                file.write(f'{symbol}={gerar_token(complexidade)}\n')
 
     def conjunto():
         file.seek(0, 0)
         file.write(f'complexidade={complexidade}\n')
         for digito in digits:
-            file.write(f'{digito}={GerarToken(complexidade)}\n')
+            file.write(f'{digito}={gerar_token(complexidade)}\n')
         for letra in LETTERS:
-            file.write(f'{letra}={GerarToken(complexidade)}\n')
+            file.write(f'{letra}={gerar_token(complexidade)}\n')
         for symbol in punctuation:
-            file.write(f'{symbol}={GerarToken(complexidade)}\n')
+            file.write(f'{symbol}={gerar_token(complexidade)}\n')
 
     if not path.exists('coden'):
         mkdir('coden')
-        Auxiliar()
+        auxiliar()
         with open('coden/read-me.txt', 'w', encoding='utf-8') as aviso:
             aviso.write(
                 'Não apague o arquivo "key" ou você perderá a sua criptografia!\n'
@@ -58,7 +58,7 @@ def setSave() -> None:
                     complexidade = 10
                     conjunto()
         except FileNotFoundError:
-            Auxiliar()
+            auxiliar()
 
 
 def setCriptografador(barra: str) -> str:
