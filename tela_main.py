@@ -164,7 +164,7 @@ def main(ORGANIZADOR: list) -> None:
         Button(WINDOW_MAIN, text="Save", command=lambda: aviso(),
                width=4).place(x=X/2, y=50, height=19)
 
-        Button(WINDOW_MAIN, text="Criptografar", command=Display).place(
+        Button(WINDOW_MAIN, text="Criptografar", command=display).place(
             x=X/1.544, y=21, height=19)
 
         Button(WINDOW_MAIN, text="Descriptografar",
