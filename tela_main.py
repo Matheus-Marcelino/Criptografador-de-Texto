@@ -22,7 +22,7 @@ def main(ORGANIZADOR: list) -> None:
         if aviso == 'yes':
             setSave()
 
-    def Display(*args) -> None:  # display do criptografador
+    def display(*args) -> None:  # display do criptografador
         caixa = Text(WINDOW_MAIN, height=10, width=30, fg="green")
         caixa.place(x=X/1.98, y=150)
         tamanho = resultado.get()
@@ -34,14 +34,14 @@ def main(ORGANIZADOR: list) -> None:
             resultado.set(tamanho[0:2000])
             tamanho_final.set(2000)
 
-    def Display2(*args) -> None:  # display do descriptografador
+    def display_2(*args) -> None:  # display do descriptografador
         caixa = Text(WINDOW_MAIN, height=10, width=30, fg="green")
         caixa.place(x=X/5.2, y=150)
         tamanho = resultado.get()
         if len(tamanho) <= 20000:
             caixa.insert('end', chars=descriptografador(barra))
 
-    def Responsividade() -> None:  # Responsividade do contador
+    def responsividade() -> None:  # Responsividade do contador
         lendo = int(tamanho_final.get())
         lendo = len(str(lendo))
 
@@ -61,21 +61,21 @@ def main(ORGANIZADOR: list) -> None:
             identificador_descrip.place(x=X/3.11, y=50)
             identificador2_crip.place(x=X/1.65, y=50)
 
-    def Contador() -> None:  # Conta o número de caracteres
+    def contador() -> None:  # Conta o número de caracteres
         tamanho = len(resultado.get())
         tamanho_final.set(0) \
             if tamanho == 0 else tamanho_final.set(tamanho)
 
-    def Limpar() -> None:
+    def limpar() -> None:
         barra.delete(0, 'end')
-        Display()
-        Display2()
+        display()
+        display_2()
         tamanho_final.set(0)
         identificador_crip['fg'] = identificador2_crip['fg'] = \
             identificador_descrip['fg'] = identificador2_descrip['fg'] = "green"
-        Responsividade()
+        responsividade()
 
-    def Limitador(*args) -> None:
+    def limitador(*args) -> None:
         tamanho = resultado.get()
 
         if len(tamanho) >= 5500:
@@ -91,9 +91,9 @@ def main(ORGANIZADOR: list) -> None:
         else:
             identificador_crip['fg'] = identificador2_crip['fg'] = "green"
 
-    def Atualizador(*args) -> None:
-        Contador()
-        Responsividade()
+    def atualizador(*args) -> None:
+        contador()
+        responsividade()
 
     try:
         X, Y = int(800), int(400)
@@ -134,13 +134,13 @@ def main(ORGANIZADOR: list) -> None:
         # barra de escrita, seu limitador e seu vizualizador
         # coletando os dados da barra, definindo o len() e o tamanho maximo
         resultado, tamanho_final = StringVar(), DoubleVar()
-        resultado.trace('w', Limitador)
+        resultado.trace('w', limitador)
         tamanho_final.set(0)
 
         barra = Entry(WINDOW_MAIN, fg="green",
                       textvariable=resultado, width=31)
         barra.place(x=X/2.7, y=21, width=218)
-        barra.bind("<KeyRelease>", Atualizador)  # detector do teclado
+        barra.bind("<KeyRelease>", atualizador)  # detector do teclado
 
         # configurando a variavel em seus locais
         identificador_crip = Label(WINDOW_MAIN, bg='black', fg="green",
@@ -158,8 +158,8 @@ def main(ORGANIZADOR: list) -> None:
         identificador2_descrip.place(x=X/2.75, y=50)
 
         # displays e associados
-        Label(text=Display())
-        Label(text=Display2())
+        Label(text=display())
+        Label(text=display_2())
 
         Button(WINDOW_MAIN, text="Save", command=lambda: aviso(),
                width=4).place(x=X/2, y=50, height=19)
@@ -168,9 +168,9 @@ def main(ORGANIZADOR: list) -> None:
             x=X/1.544, y=21, height=19)
 
         Button(WINDOW_MAIN, text="Descriptografar",
-               command=Display2).place(x=X/4, y=21, height=19)
+               command=display_2).place(x=X/4, y=21, height=19)
 
-        Button(WINDOW_MAIN, text='Limpar', command=Limpar).place(
+        Button(WINDOW_MAIN, text='Limpar', command=limpar).place(
             x=X/2.3, y=50, height=19)
 
         WINDOW_MAIN.mainloop()
