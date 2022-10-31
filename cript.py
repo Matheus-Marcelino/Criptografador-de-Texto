@@ -11,7 +11,7 @@ def gerar_token(tamanho=complexidade, caracter=ascii_lowercase + ascii_uppercase
     return token
 
 
-def setSave() -> None:
+def save_paste() -> None:
     global complexidade
 
     # escrevendo os digitos e sua criptografia

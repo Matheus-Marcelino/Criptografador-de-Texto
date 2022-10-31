@@ -1,5 +1,5 @@
 from tkinter import DoubleVar, StringVar, TclError, Tk, Label, Button, Entry, Text, PhotoImage, messagebox
-from cript import setSave, criptografador, descriptografador
+from cript import save_paste, criptografador, descriptografador
 
 
 def main(message: list) -> None:
@@ -21,7 +21,7 @@ def main(message: list) -> None:
             'Save Requestion', 'Ao mudar o save você perderá a sua'
             '\nultima criptografia para sempre.\nDeseja continuar?')
         if aviso == 'yes':
-            setSave()
+            save_paste()
 
     def display(*args) -> None:  # display do criptografador
         caixa = Text(WINDOW_MAIN, height=10, width=30, fg="green")
