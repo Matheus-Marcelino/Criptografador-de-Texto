@@ -124,6 +124,7 @@ def descriptografador(barra: str) -> str:
 
 def setOrganizador() -> list:  # Apenas quando o programa for iniciado
     global complexidade
+
     ERROR_LIST = [True]
     if not path.exists('coden'):
         save_paste()
