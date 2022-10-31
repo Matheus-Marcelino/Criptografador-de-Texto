@@ -61,7 +61,7 @@ def setSave() -> None:
             auxiliar()
 
 
-def setCriptografador(barra: str) -> str:
+def criptografador(barra: str) -> str:
     valor = barra.get()
     if valor == '':
         return 'Digite algo na barra a cima :)'

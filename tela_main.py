@@ -1,6 +1,6 @@
 def main(ORGANIZADOR: list) -> None:
     from tkinter import DoubleVar, StringVar, TclError, Tk, Label, Button, Entry, Text, PhotoImage, messagebox
-    from cript import setSave, setCriptografador, setDescriptografador
+    from cript import setSave, criptografador, setDescriptografador
 
     def ComunicadoUrgente() -> None:
         if ORGANIZADOR[0] is None:
@@ -27,7 +27,7 @@ def main(ORGANIZADOR: list) -> None:
         caixa.place(x=X/1.98, y=150)
         tamanho = resultado.get()
         if len(tamanho) <= 2000:
-            caixa.insert('end', chars=setCriptografador(barra))
+            caixa.insert('end', chars=criptografador(barra))
         else:
             caixa.insert(
                 'end', chars='O limite de 2000 caracteres\nnão pode ser ultrapassado')
