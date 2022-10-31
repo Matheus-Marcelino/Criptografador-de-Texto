@@ -124,9 +124,10 @@ def descriptografador(barra: str) -> str:
 
 def setOrganizador() -> list:  # Apenas quando o programa for iniciado
     global complexidade
-    ORGANIZADOR = []
+    ORGANIZADOR = [True]
     if not path.exists('coden'):
         setSave()
+        ORGANIZADOR.clear()
         ORGANIZADOR.append(False)
         return ORGANIZADOR
 
@@ -140,7 +141,6 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
             try:  # primeira ação
                 if file.readline()[:13] != 'complexidade=':
                     setSave()
-                    ORGANIZADOR.append(True)
                     return ORGANIZADOR
 
                 file.seek(0)
@@ -149,7 +149,6 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                 if complexidade <= 2:
                     complexidade = 5
                     setSave()
-                    ORGANIZADOR.append(True)
                     return ORGANIZADOR
 
                 if complexidade >= 100:
@@ -160,7 +159,6 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                     analisador = len(cripto[2:])-1 != complexidade
                     if analisador:
                         setSave()
-                        ORGANIZADOR.append(True)
                         return ORGANIZADOR
 
                 for digit in digits:
@@ -171,7 +169,6 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                             break
                     else:
                         setSave()
-                        ORGANIZADOR.append(True)
                         return ORGANIZADOR
 
                 for letter in LETTERS:
@@ -182,7 +179,6 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                             break
                     else:
                         setSave()
-                        ORGANIZADOR.append(True)
                         return ORGANIZADOR
 
                 for punc in punctuation:
@@ -193,18 +189,17 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                             break
                     else:
                         setSave()
-                        ORGANIZADOR.append(True)
+
                         return ORGANIZADOR
 
             except ValueError:
                 complexidade = 10
                 setSave()
-                ORGANIZADOR.append(True)
                 return ORGANIZADOR
     except FileNotFoundError:
         setSave()
-        ORGANIZADOR.append(True)
         return ORGANIZADOR
+    ORGANIZADOR.clear()
     ORGANIZADOR.append(False)
     return ORGANIZADOR
 

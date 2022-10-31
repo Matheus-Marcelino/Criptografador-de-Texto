@@ -2,20 +2,20 @@ def main(ORGANIZADOR: list) -> None:
     from tkinter import DoubleVar, StringVar, TclError, Tk, Label, Button, Entry, Text, PhotoImage, messagebox
     from cript import setSave, criptografador, descriptografador
 
-    def ComunicadoUrgente() -> None:
-        if ORGANIZADOR[0] is None:
+    def comunicado_urgente() -> None:
+        if ORGANIZADOR[0] is True:
             messagebox.showwarning('Aviso Importante', 'A sua complexidade está acima de 100\n'
                                    'Problemas de performance podem aparecer.')
 
         try:
-            if ORGANIZADOR[0] is True or ORGANIZADOR[1] is True:
+            if ORGANIZADOR[0] is None or ORGANIZADOR[1] is None:
                 messagebox.showerror(
                     'ERROR: 01', 'Ouve Algum problema ou mudança de valor no arquivo Key,'
                     '\nportante ele foi modificado e sua ultima criptografia foi perdida.')
         except IndexError:
             pass
 
-    def Aviso() -> None:
+    def aviso() -> None:
         aviso = messagebox.askquestion(
             'Save Requestion', 'Ao mudar o save você perderá a sua'
             '\nultima criptografia para sempre.\nDeseja continuar?')
@@ -116,7 +116,7 @@ def main(ORGANIZADOR: list) -> None:
               fg="green", anchor='n').place(x=X/2.1, y=0.2)
 
         # aviso
-        ComunicadoUrgente()
+        comunicado_urgente()
 
         Label(WINDOW_MAIN, text="AVISO", bg="black", font="Arial 13",
               fg="red", anchor='n').place(x=X/2.15, y=90)
@@ -161,7 +161,7 @@ def main(ORGANIZADOR: list) -> None:
         Label(text=Display())
         Label(text=Display2())
 
-        Button(WINDOW_MAIN, text="Save", command=lambda: Aviso(),
+        Button(WINDOW_MAIN, text="Save", command=lambda: aviso(),
                width=4).place(x=X/2, y=50, height=19)
 
         Button(WINDOW_MAIN, text="Criptografar", command=Display).place(
