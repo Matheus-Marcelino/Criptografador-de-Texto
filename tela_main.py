@@ -1,14 +1,15 @@
-def main(ORGANIZADOR: list) -> None:
-    from tkinter import DoubleVar, StringVar, TclError, Tk, Label, Button, Entry, Text, PhotoImage, messagebox
-    from cript import setSave, criptografador, descriptografador
+from tkinter import DoubleVar, StringVar, TclError, Tk, Label, Button, Entry, Text, PhotoImage, messagebox
+from cript import setSave, criptografador, descriptografador
 
+
+def main(message: list) -> None:
     def comunicado_urgente() -> None:
-        if ORGANIZADOR[0] is True:
+        if message[0] is True:
             messagebox.showwarning('Aviso Importante', 'A sua complexidade está acima de 100\n'
                                    'Problemas de performance podem aparecer.')
 
         try:
-            if ORGANIZADOR[0] is None or ORGANIZADOR[1] is None:
+            if message[0] is None or message[1] is None:
                 messagebox.showerror(
                     'ERROR: 01', 'Ouve Algum problema ou mudança de valor no arquivo Key,'
                     '\nportante ele foi modificado e sua ultima criptografia foi perdida.')
