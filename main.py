@@ -19,9 +19,9 @@ if __name__ == '__main__':
                     # colorindo de preto
                     Label(WINDOW_LOADING, bg='#1F2732',
                           width=2, height=1).place(x=(j+4)*22, y=100)
-            ORGANIZADOR = setOrganizador()
+            RESULT = setOrganizador()
             WINDOW_LOADING.destroy()
-            return ORGANIZADOR
+            return RESULT
         except TclError:
             pass
 
@@ -47,8 +47,8 @@ if __name__ == '__main__':
                   height=1).place(x=(i+4)*22, y=100)
 
         WINDOW_LOADING.update()
-        ORGANIZADOR = animacao()
+        MESSAGE = animacao()
         WINDOW_LOADING.mainloop()
-        main(ORGANIZADOR)
+        main(MESSAGE)
     except TclError:
         pass

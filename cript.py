@@ -124,12 +124,12 @@ def descriptografador(barra: str) -> str:
 
 def setOrganizador() -> list:  # Apenas quando o programa for iniciado
     global complexidade
-    ORGANIZADOR = [True]
+    ERROR_LIST = [True]
     if not path.exists('coden'):
         setSave()
-        ORGANIZADOR.clear()
-        ORGANIZADOR.append(False)
-        return ORGANIZADOR
+        ERROR_LIST.clear()
+        ERROR_LIST.append(False)
+        return ERROR_LIST
 
     try:
         with open('coden/key.txt', 'r+', encoding='utf-8') as file:
@@ -141,7 +141,7 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
             try:  # primeira ação
                 if file.readline()[:13] != 'complexidade=':
                     setSave()
-                    return ORGANIZADOR
+                    return ERROR_LIST
 
                 file.seek(0)
                 temp = file.readline()[13:]
@@ -149,17 +149,17 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                 if complexidade <= 2:
                     complexidade = 5
                     setSave()
-                    return ORGANIZADOR
+                    return ERROR_LIST
 
                 if complexidade >= 100:
-                    ORGANIZADOR.append(None)
+                    ERROR_LIST.append(None)
 
                 Conjunto()
                 for cripto in file:
                     analisador = len(cripto[2:])-1 != complexidade
                     if analisador:
                         setSave()
-                        return ORGANIZADOR
+                        return ERROR_LIST
 
                 for digit in digits:
                     Conjunto()
@@ -169,7 +169,7 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                             break
                     else:
                         setSave()
-                        return ORGANIZADOR
+                        return ERROR_LIST
 
                 for letter in LETTERS:
                     Conjunto()
@@ -179,7 +179,7 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                             break
                     else:
                         setSave()
-                        return ORGANIZADOR
+                        return ERROR_LIST
 
                 for punc in punctuation:
                     Conjunto()
@@ -190,18 +190,18 @@ def setOrganizador() -> list:  # Apenas quando o programa for iniciado
                     else:
                         setSave()
 
-                        return ORGANIZADOR
+                        return ERROR_LIST
 
             except ValueError:
                 complexidade = 10
                 setSave()
-                return ORGANIZADOR
+                return ERROR_LIST
     except FileNotFoundError:
         setSave()
-        return ORGANIZADOR
-    ORGANIZADOR.clear()
-    ORGANIZADOR.append(False)
-    return ORGANIZADOR
+        return ERROR_LIST
+    ERROR_LIST.clear()
+    ERROR_LIST.append(False)
+    return ERROR_LIST
 
 
 def ArquivoINTL() -> None:  # apagando a pasta __pycache__
